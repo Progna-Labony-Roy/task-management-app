@@ -32,9 +32,6 @@ const register = () => {
   };
 
   return (
-    <div>
-      <Navbar></Navbar>
-
       <div class="container mx-auto items-center">
         <div class="rounded-lg">
           <form
@@ -110,10 +107,6 @@ const register = () => {
           <p class="text-xs text-rose-600 mt-3">{error}</p>
         </div>
       </div>
-      <div className="mt-10">
-        <Footer></Footer>
-      </div>
-    </div>
   );
 };
 

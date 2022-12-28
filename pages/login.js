@@ -32,8 +32,6 @@ const login = () => {
   };
 
   return (
-    <div>
-      <Navbar></Navbar>
       <div class="container mx-auto items-center">
         <div class="rounded-lg">
           <form
@@ -101,10 +99,6 @@ const login = () => {
           <p class="text-xs text-gray-500 mt-3"></p>
         </div>
       </div>
-      <div className="mt-10">
-        <Footer></Footer>
-      </div>
-    </div>
   );
 };
 

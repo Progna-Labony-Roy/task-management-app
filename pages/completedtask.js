@@ -2,9 +2,9 @@ import React from 'react';
 
 const completedtask = () => {
     return (
-        <div>
-            
-        </div>
+        <section class="text-gray-600 body-font relative">
+  
+</section>
     );
 };
 
