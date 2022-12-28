@@ -16,10 +16,10 @@ const Navbar = () => {
       <Link href="/mytask" className="mr-5 hover:text-gray-900">My Task</Link>
       <Link href="/completedtask" className="mr-5 hover:text-gray-900">Completed Tasks</Link>
     </nav>
-    <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 mx-2 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login
-    </button>
-    <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Register
-    </button>
+    <Link href='/login'><button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 mx-2 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login
+    </button></Link>
+    <Link href='/register'><button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Register
+    </button></Link>
   </div>
 </header>
     );
