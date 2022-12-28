@@ -30,13 +30,13 @@ const Navbar = () => {
           <span className="ml-3 text-xl">TaskManager</span>
         </a>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <Link href="/addtask" className="mr-5 hover:text-gray-900">
+          <Link href="/addtask" className="mr-5 hover:text-gray-900 text-xs">
             Add Task
           </Link>
-          <Link href="/mytask" className="mr-5 hover:text-gray-900">
+          <Link href="/mytask" className="mr-5 hover:text-gray-900 text-xs">
             My Task
           </Link>
-          <Link href="/completedtask" className="mr-5 hover:text-gray-900">
+          <Link href="/completedtask" className="mr-5 hover:text-gray-900 text-xs">
             Completed Tasks
           </Link>
         </nav>
