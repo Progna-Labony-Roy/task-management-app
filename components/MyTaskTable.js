@@ -1,6 +1,7 @@
 import React from "react";
 
 const MyTaskTable = ({ title, image, description }) => {
+
   return (
     <div class="flex flex-wrap -m-4">
     <div class="p-4 md:w-1/3">

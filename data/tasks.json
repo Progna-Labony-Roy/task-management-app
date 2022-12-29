@@ -1,6 +1,7 @@
 [{
     "_id": "63abf8c300a7f6f65b807c60",
     "title": "my task",
-    "image": "my image",
+    "email": "",
+    "image": "https://i.ibb.co/26HMF0N/image.webp",
     "description":"I worked the wholw day"
 }]

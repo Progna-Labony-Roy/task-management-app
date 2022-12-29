@@ -14,11 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=''>
-      <Navbar></Navbar>
       <div>
         <img src='/task.jpg'></img>
       </div>
-      <Footer></Footer>
       </main>
     </>
   )
