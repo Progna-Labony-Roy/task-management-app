@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 
 const Modal = ({isVisible, onClose}) => {
@@ -40,7 +40,7 @@ const handleAddTask = data =>{
       image: imgData.data.url
     }
 
-    fetch('https://task-manager-server-phi.vercel.app/tasks',{
+    fetch('http://localhost:5000/tasks',{
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -60,7 +60,7 @@ const handleAddTask = data =>{
   const handleDeleteTask = (id) => {
     const proceed = window.confirm("Delete Task?");
     if (proceed) {
-      fetch(`https://task-manager-server-phi.vercel.app/tasks/${id}`, {
+      fetch(`http://localhost:5000/tasks/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -74,6 +74,7 @@ const handleAddTask = data =>{
         });
     }
   };
+  
   if(!isVisible) return null;
 
   return (     

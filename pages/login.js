@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import Link from "next/link";
 import { AuthContext } from "../components/AuthProvider";
-import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const login = () => {
   const { signIn } = useContext(AuthContext);
-    
+  const router = useRouter();  
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,8 +19,8 @@ const login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        toast.success("Signed in successfully");
-        
+        router.push('/');
+        toast('Login successful!');
       })
       .catch((error) => {
         console.error(error);
@@ -40,7 +40,7 @@ const login = () => {
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-semibold mb-2"
-                for="email"
+                htmlFor="email"
               >
                 Email
               </label>
@@ -55,7 +55,7 @@ const login = () => {
             <div className="mb-6">
               <label
                 className="block text-gray-700 text-sm font-semibold mb-2"
-                for="password"
+                htmlFor="password"
               >
                 Password
               </label>

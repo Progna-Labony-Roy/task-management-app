@@ -18,13 +18,16 @@ const mytask = () => {
 //   }, []);
 const { user } = useContext(AuthContext);
 
-  const [tasks, setTasks] = useState([]);
+  const url = `http://localhost:5000/tasks?email=${user?.email}`;
 
-  useEffect(() => {
-    fetch(`https://task-manager-server-phi.vercel.app/tasks?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setTasks(data));
-  }, [user?.email]);
+  const { data: tasks = [] ,refetch} = useQuery({
+    queryKey: ["tasks", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url);
+      const data = await res.json();
+      return data;
+    },
+  });
 
 
   return (
@@ -33,14 +36,11 @@ const { user } = useContext(AuthContext);
       <div className="container px-5 pt-10 pb-24 mx-auto">
       <div className="flex flex-wrap -m-4">
         {tasks?.length ===0 ? "No task added" :
-            tasks.map((item, index) => (
+            tasks.map((task, index) => (
                 <MyTaskCard
-                description={item.description}
-                title={item.title}
-                id={item.id}
-                image={item.image}
+                task={task}
                 key={index}
-                
+                refetch={refetch}
                 ></MyTaskCard>
             ))}
       </div>
