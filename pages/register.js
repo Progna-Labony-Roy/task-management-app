@@ -1,12 +1,13 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { AuthContext } from "../components/AuthProvider";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { toast } from "react-hot-toast";
+
 
 const register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState();
+  
   // useTitle('Sign Up');
 
   const handleSignin = (event) => {
@@ -22,8 +23,9 @@ const register = () => {
         setError("");
         const user = result.user;
         console.log(user);
+        toast.success("Registered successfully");
+        navigate('/');
         form.reset();
-        toast.success("Registered successfully")
       })
       .catch((error) => {
         console.error(error);

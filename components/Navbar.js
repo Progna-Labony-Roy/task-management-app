@@ -27,7 +27,9 @@ const Navbar = () => {
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <Link href="/"><span className="ml-3 text-xl">TaskManager</span></Link>
+          <Link href="/">
+            <span className="ml-3 text-xl">TaskManager</span>
+          </Link>
         </div>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           <Link href="/addtask" className="mr-5 hover:text-gray-900 text-xs">
@@ -36,9 +38,18 @@ const Navbar = () => {
           <Link href="/mytask" className="mr-5 hover:text-gray-900 text-xs">
             My Task
           </Link>
-          <Link href="/completedtask" className="mr-5 hover:text-gray-900 text-xs">
+          <Link
+            href="/completedtask"
+            className="mr-5 hover:text-gray-900 text-xs"
+          >
             Completed Tasks
           </Link>
+          <Link href="">
+                <label className="inline-flex relative items-center cursor-pointer">
+                  <input type="checkbox" value="" className="sr-only peer" />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                </label>
+              </Link>
         </nav>
         {user?.uid ? (
           <>
@@ -62,6 +73,7 @@ const Navbar = () => {
                   Register
                 </button>
               </Link>
+             
             </>
           </>
         )}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -39,10 +40,10 @@ const handleAddTask = data =>{
       image: imgData.data.url
     }
 
-    fetch('/api/tasks/',{
+    fetch('https://task-manager-server-phi.vercel.app/tasks',{
               method: 'POST',
               headers: {
-                'content-type': 'application/json',
+                'content-type': 'application/json'
               },
               body: JSON.stringify(tasks)
             })
@@ -55,6 +56,24 @@ const handleAddTask = data =>{
   }
 })
 }
+
+  const handleDeleteTask = (id) => {
+    const proceed = window.confirm("Delete Task?");
+    if (proceed) {
+      fetch(`https://task-manager-server-phi.vercel.app/tasks/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("deleted successfully");
+            const remaining = tasks.filter((task) => task._id !== id);
+            setTasks(remaining);
+          }
+        });
+    }
+  };
   if(!isVisible) return null;
 
   return (     
@@ -83,8 +102,9 @@ const handleAddTask = data =>{
             className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-xs"
           />
           {errors.email && (
-            <span className="text-red-500">{errors.email.message}</span>
+            <span className="text-red-500 text-xs">{errors.email.message}</span>
           )}
+          <br />
         <label className="leading-7 text-sm text-gray-600">
             <span className="label-text">Task title</span>
           </label>
@@ -94,8 +114,9 @@ const handleAddTask = data =>{
             className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-xs"
           />
           {errors.title && (
-            <span className="text-red-500">This field is required</span>
+            <span className="text-red-500 text-xs">This field is required</span>
           )}
+          <br />
         <label className="leading-7 text-sm text-gray-600">
               <span className="label-text">Description</span>
             </label>
@@ -107,8 +128,9 @@ const handleAddTask = data =>{
               placeholder="description"
             ></textarea>
             {errors.description && (
-            <span className="text-red-500">{errors.description.message}</span>
+            <span className="text-red-500 text-xs">{errors.description.message}</span>
           )}
+          <br />
         <label className="leading-7 text-sm text-gray-600">
             <span className="label-text">Photo</span>
           </label>
@@ -119,13 +141,10 @@ const handleAddTask = data =>{
             className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-xs"
           />
           {errors.image && (
-            <span className="text-red-500">T{errors.image.message}</span>
+            <span className="text-red-500 text-xs">T{errors.image.message}</span>
           )}
-        <input
-          type="submit"
-          value="Add Task"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 my-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        />
+          <br />
+          <button data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Task</button>
       </form>
             </div>
         </div>
