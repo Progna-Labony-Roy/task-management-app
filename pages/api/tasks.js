@@ -14,8 +14,11 @@ function handler(req, res) {
   } else if (req.method === "POST") {
     const { title, image, email, description } = req.body;
     const newTask = { title, image, email, description, id:Date.now() };
+
+    const filePath = path.join(process.cwd(), "data", "tasks.json");
     const data = getData();
     data.push(newTask);
+    fs.writeFileSync(filePath,JSON.stringify(data))
     res.status(200).json({ message: "Added", book:newTask });
   }
 }

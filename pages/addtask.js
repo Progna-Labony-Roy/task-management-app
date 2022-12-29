@@ -13,7 +13,7 @@ const addtask = () => {
 
       {/* Modal toggle  */}
       <button onClick={()=> setShowModal(true)}
-        class="lg:mx-96 md:mx-20 mx-20 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
+        className="lg:mx-96 md:mx-20 mx-20 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center"
       >
         Add Task
       </button>

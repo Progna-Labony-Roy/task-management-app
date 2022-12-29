@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import MyTaskTable from "../components/MyTaskTable";
+import MyTaskCard from "../components/MyTaskCard";
+
 
 const mytask = () => {
   const [data, setData] = useState();
@@ -14,18 +15,20 @@ const mytask = () => {
     sendRequest();
   }, []);
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 pt-10 pb-24 mx-auto">
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 pt-10 pb-24 mx-auto">
+      <div className="flex flex-wrap -m-4">
         {data?.length &&
           data.map((item, index) => (
-            <MyTaskTable
+            <MyTaskCard
               description={item.description}
               title={item.title}
               id={item.id}
               image={item.image}
               key={index}
-            ></MyTaskTable>
+            ></MyTaskCard>
           ))}
+      </div>
       </div>
     </section>
   );

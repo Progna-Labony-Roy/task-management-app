@@ -32,39 +32,39 @@ const login = () => {
   };
 
   return (
-      <div class="container mx-auto items-center">
-        <div class="rounded-lg">
+      <div className="container mx-auto items-center">
+        <div className="rounded-lg">
           <form
             onSubmit={handleLogin}
-            class="form-style bg-white shadow-md rounded px-6 py-6 my-6 lg:mx-80 md:mx-20 mx-5"
+            className="form-style bg-white shadow-md rounded px-6 py-6 my-6 lg:mx-80 md:mx-20 mx-5"
           >
-            <h2 class="text-gray-900 text-xl font-bold  title-font mb-5">
+            <h2 className="text-gray-900 text-xl font-bold  title-font mb-5">
               Please, Log in
             </h2>
-            <div class="mb-4">
+            <div className="mb-4">
               <label
-                class="block text-gray-700 text-sm font-semibold mb-2"
+                className="block text-gray-700 text-sm font-semibold mb-2"
                 for="email"
               >
                 Email
               </label>
               <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
                 type="text"
                 name="email"
                 placeholder="Email"
               />
             </div>
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                class="block text-gray-700 text-sm font-semibold mb-2"
+                className="block text-gray-700 text-sm font-semibold mb-2"
                 for="password"
               >
                 Password
               </label>
               <input
-                class="shadow appearance-none border border-grey-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-grey-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"
                 name="password"
@@ -80,15 +80,15 @@ const login = () => {
                 Sign up
               </Link>
             </p>
-            <div class="flex items-center justify-between mt-4">
+            <div className="flex items-center justify-between mt-4">
               <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Sign In
               </button>
               <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Google SignIn
@@ -96,7 +96,7 @@ const login = () => {
             </div>
           </form>
 
-          <p class="text-xs text-gray-500 mt-3"></p>
+          <p className="text-xs text-gray-500 mt-3"></p>
         </div>
       </div>
   );
