@@ -53,11 +53,11 @@ fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
           <p className="leading-relaxed mb-3">{description}</p>
           <div className="flex items-center flex-wrap ">
             
-            {/* <Link href="/mytask">
+            <Link href="/mytask">
             <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs mr-2">
               Not Completed
             </button>
-            </Link> */}
+            </Link>
             <button
               onClick={() => handleDeleteTask(task)}
               className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs"
