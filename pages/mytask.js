@@ -19,7 +19,7 @@ const mytask = () => {
 const { user } = useContext(AuthContext);
 const [myTask,setMyTask] =useState();
 
-  const url = `http://localhost:5000/tasks?email=${user?.email}`;
+  const url = `https://task-manager-server-phi.vercel.app/tasks?email=${user?.email}`;
 
   const { data: tasks = [] ,refetch} = useQuery({
     queryKey: ["tasks", user?.email],

@@ -13,7 +13,7 @@ const MyTaskCard = ({ task, refetch }) => {
   const handleDeleteTask = (data) => {
     const proceed = window.confirm("Delete Task?");
     if (proceed) {
-fetch(`http://localhost:5000/deleteTask/${data?._id}`, {
+fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ fetch(`http://localhost:5000/deleteTask/${data?._id}`, {
   };
 
   const handleComplete =(data) =>{
-    fetch(`http://localhost:5000/tasks/completed/${data?._id}`,{
+    fetch(`https://task-manager-server-phi.vercel.app/tasks/completed/${data?._id}`,{
       method: "PUT"
     })
     .then(res => res.json())

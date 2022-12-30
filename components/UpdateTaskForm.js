@@ -21,7 +21,7 @@ const UpdateTaskForm = ({ refetch }) => {
     const newData = { ...data, id };
     console.log(newData);
     fetch(
-      `http://localhost:5000/updateTask`,
+      `https://task-manager-server-phi.vercel.app/updateTask`,
       {
         method: "PUT",
         headers: {

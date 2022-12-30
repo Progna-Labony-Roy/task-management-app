@@ -11,7 +11,7 @@ const CompletedTask = ({ task, refetch }) => {
   const handleDeleteTask = (data) => {
     const proceed = window.confirm("Delete Task?");
     if (proceed) {
-fetch(`http://localhost:5000/deleteTask/${data?._id}`, {
+fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

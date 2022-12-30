@@ -40,7 +40,7 @@ const handleAddTask = data =>{
       confirm: false
     }
 
-    fetch('http://localhost:5000/tasks',{
+    fetch('https://task-manager-server-phi.vercel.app/tasks',{
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
