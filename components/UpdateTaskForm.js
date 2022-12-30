@@ -6,6 +6,7 @@ import { AuthContext } from "./AuthProvider";
 
 const UpdateTaskForm = ({ refetch }) => {
   const { user,editID} = useContext(AuthContext);
+  console.log("edit",editID)
   
   const router = useRouter();
 
@@ -16,7 +17,7 @@ const UpdateTaskForm = ({ refetch }) => {
   } = useForm();
 
   const handleUpdateTask = (data) => {
-    const id = editID._id;
+    const id = editID?._id;
     console.log(id);
     const newData = { ...data, id };
     console.log(newData);
