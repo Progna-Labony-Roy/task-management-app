@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 
 const login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const router = useRouter();  
 
   const handleLogin = (event) => {
@@ -26,6 +26,18 @@ const login = () => {
         console.error(error);
       });
   };
+
+
+  const handleGoogleSignIn=()=>{
+    googleSignIn()
+    .then(result=>{
+        const user = result.user;
+        console.log(user);
+        router.push('/');
+       
+    })
+    .catch(err => console.error(err));
+}
 
   return (
       <div className="container mx-auto items-center">
@@ -70,10 +82,10 @@ const login = () => {
             <p>
               If you don't have an account, please{" "}
               <Link
-                href="/signup"
+                href="/register"
                 className="text-teal-400 font-bold hover:text-lg"
               >
-                Sign up
+                Register
               </Link>
             </p>
             <div className="flex items-center justify-between mt-4">
@@ -83,7 +95,7 @@ const login = () => {
               >
                 Sign In
               </button>
-              <button
+              <button onClick={handleGoogleSignIn}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
