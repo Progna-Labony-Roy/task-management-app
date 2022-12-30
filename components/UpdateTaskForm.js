@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 
 const UpdateTaskForm = ({ refetch }) => {
-  const { user} = useContext(AuthContext);
+  const { user,editID} = useContext(AuthContext);
   
   const router = useRouter();
 
@@ -15,41 +15,21 @@ const UpdateTaskForm = ({ refetch }) => {
     formState: { errors },
   } = useForm();
 
-  // const handleUpdateTask = (data) => {
-  //   const id = editID._id;
-  //   console.log(id);
-  //   const newData = { ...data, id };
-  //   console.log(newData);
-  //   fetch(
-  //     `https://task-manager-server-phi.vercel.app/updateTask`,
-  //     {
-  //       method: "PUT",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(newData),
-  //     }
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       router.push("/mytask");
-  //       toast("Task Updated");
-  //       refetch();
-  //     });
-  // };
-
-
-  const handleUpdateTask = (data) => {  
-    // const id=data._id;  
-    // console.log(id)
-    // const newData = { ...data, id };
-    fetch(`https://task-manager-server-phi.vercel.app/updateTask/${data?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+  const handleUpdateTask = (data) => {
+    const id = editID._id;
+    console.log(id);
+    const newData = { ...data, id };
+    console.log(newData);
+    fetch(
+      `https://task-manager-server-phi.vercel.app/updateTask`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         router.push("/mytask");
@@ -57,6 +37,24 @@ const UpdateTaskForm = ({ refetch }) => {
         refetch();
       });
   };
+
+
+  // const handleUpdateTask = (data) => {  
+    
+  //   fetch(`https://task-manager-server-phi.vercel.app/updateTask/${data?._id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       router.push("/mytask");
+  //       toast("Task Updated");
+  //       refetch();
+  //     });
+  // };
 
   return (
     <div className="mx-auto mt-10 mb-16 w-75 max-w-2xl md:h-auto">
