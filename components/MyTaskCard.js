@@ -58,9 +58,11 @@ fetch(`http://localhost:5000/deleteTask/${data?._id}`, {
             {
               task?.confirm ? <button disabled className="bg-transparent text-zinc-400 font-semibold  py-1 px-2 border border-zinc-400 rounded text-xs  mr-2">
               Completed
-            </button> :<button onClick={() => handleComplete(task)} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs  mr-2">
+            </button> :
+            <Link href="/completedtask">
+            <button onClick={() => handleComplete(task)} className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs  mr-2">
               Complete
-            </button>
+            </button></Link>
             }
             <Link href="/UpdateTask">
             <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs mr-2">

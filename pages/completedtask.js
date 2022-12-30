@@ -19,7 +19,7 @@ const completedtask = () => {
   });
 
   return (
-    <div>
+    <div className="mb-32">
       <section className="text-gray-600 body-font">
         <div className="container px-5 pt-10 pb-24 mx-auto">
           <div className="flex flex-wrap -m-4">

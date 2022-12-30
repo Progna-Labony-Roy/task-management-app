@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -19,7 +18,6 @@ const Modal = ({isVisible, onClose}) => {
   // const [inputs, setInputs]= useState({ title:"", image:"", email:user?.email, description:"" });
 
 const handleAddTask = data =>{
-  // console.log(data.image[0]);
   const image=data.image[0];
   const formData =new FormData();
   formData.append('image', image);
@@ -31,13 +29,14 @@ const handleAddTask = data =>{
 .then(res => res.json())
 .then(imgData =>{
   if(imgData.success){
-    console.log(imgData.data.url);
+    // console.log(imgData.data.url);
      
     const tasks ={
       title: data.title,
       email: data.email,
       description: data.description,
       image: imgData.data.url,
+      comment:"",
       confirm: false
     }
 
@@ -127,7 +126,7 @@ const handleAddTask = data =>{
             <span className="text-red-500 text-xs">T{errors.image.message}</span>
           )}
           <br />
-          <button data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Task</button>
+          <button data-modal-toggle="defaultModal" type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Task</button>
       </form>
             </div>
         </div>
