@@ -8,6 +8,8 @@ const auth=getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState();
     const [loading, setLoading] =useState();
+    const [userTask,setUserTask]= useState(null);
+
     const githubProvider = new GithubAuthProvider();
 
 
@@ -46,7 +48,7 @@ const AuthProvider = ({children}) => {
         }
     },[])
 
-    const authInfo = { user, loading ,createUser, signIn, logOut ,githubLogin,updateUserProfile }
+    const authInfo = { user, loading ,userTask,createUser, signIn, logOut ,githubLogin,updateUserProfile,setUserTask }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

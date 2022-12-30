@@ -37,7 +37,8 @@ const handleAddTask = data =>{
       title: data.title,
       email: data.email,
       description: data.description,
-      image: imgData.data.url
+      image: imgData.data.url,
+      confirm: false
     }
 
     fetch('http://localhost:5000/tasks',{
@@ -51,29 +52,10 @@ const handleAddTask = data =>{
             .then(result =>{
               console.log(result);
               toast.success(`Task is added successfully`);
-              // navigate('/dashboard/managedoctors')
             })
   }
 })
 }
-
-  const handleDeleteTask = (id) => {
-    const proceed = window.confirm("Delete Task?");
-    if (proceed) {
-      fetch(`http://localhost:5000/tasks/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            alert("deleted successfully");
-            const remaining = tasks.filter((task) => task._id !== id);
-            setTasks(remaining);
-          }
-        });
-    }
-  };
   
   if(!isVisible) return null;
 
