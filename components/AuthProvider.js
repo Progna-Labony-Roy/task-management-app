@@ -6,8 +6,9 @@ export const AuthContext =createContext();
 const auth=getAuth(app);
 
 const AuthProvider = ({children}) => {
-    const [user, setUser] = useState();
-    const [loading, setLoading] =useState();
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] =useState(null);
+    const [editID,setEditID] =useState(null)
 
     const githubProvider = new GithubAuthProvider();
 
@@ -47,7 +48,7 @@ const AuthProvider = ({children}) => {
         }
     },[])
 
-    const authInfo = { user, loading ,createUser, signIn, logOut ,githubLogin,updateUserProfile }
+    const authInfo = { user, loading ,editID,setEditID,createUser, signIn, logOut ,githubLogin,updateUserProfile }
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

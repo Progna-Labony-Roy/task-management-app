@@ -6,7 +6,7 @@ const addtask = () => {
 
   return (
    <>
-    <div className="pb-72">
+    <div className="lg:mb-72 md:mb-72 mb-10">
       <h2 className="lg:mx-96 md:mx-20 mx-20 my-10 font-semibold">
         For adding your daily task please click here
       </h2>

@@ -7,7 +7,7 @@ import MyTaskCard from "../components/MyTaskCard";
 const completedtask = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `https://task-manager-server-phi.vercel.app/tasks?email=${user?.email}`;
+  const url = `http://localhost:5000/tasks?email=${user?.email}`;
 
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["tasks", user?.email],
@@ -19,9 +19,9 @@ const completedtask = () => {
   });
 
   return (
-    <div className="mb-32">
+    <div className="lg:mb-72 md:mb-10 mb-1">
       <section className="text-gray-600 body-font">
-        <div className="container px-5 pt-10 pb-24 mx-auto">
+        <div className="container px-5 pt-10 pb-16 mx-auto">
           <div className="flex flex-wrap -m-4">
             {tasks?.length === 0
               ? "No task added"

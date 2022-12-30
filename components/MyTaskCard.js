@@ -1,14 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "./AuthProvider";
+import * as React from 'react';
 
 const MyTaskCard = ({ task, refetch }) => {
+  const {setEditID}=useContext(AuthContext);
+  const router=useRouter();
   const { title, image, description } = task;
 
   const handleDeleteTask = (data) => {
     const proceed = window.confirm("Delete Task?");
     if (proceed) {
-fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
+fetch(`http://localhost:5000/deleteTask/${data?._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -29,7 +34,7 @@ fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
   };
 
   const handleComplete =(data) =>{
-    fetch(`https://task-manager-server-phi.vercel.app/tasks/completed/${data?._id}`,{
+    fetch(`http://localhost:5000/tasks/completed/${data?._id}`,{
       method: "PUT"
     })
     .then(res => res.json())
@@ -40,6 +45,11 @@ fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
     })
   }
 
+  const gotoNewRout=(data)=>{
+    setEditID(data)
+    router.push('/UpdateTask');
+}
+
   return (
     
     <div className="p-4 md:w-1/3">
@@ -47,7 +57,7 @@ fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
         <img
           className="lg:h-48 md:h-36 w-full object-cover object-center"
           src={image}
-          alt="blog"
+          alt="image"
         />
         <div className="p-6">
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
@@ -64,10 +74,10 @@ fetch(`https://task-manager-server-phi.vercel.app/deleteTask/${data?._id}`, {
               Complete
             </button></Link>
             }
-            <Link href="/UpdateTask">
-            <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs mr-2">
+            
+            <button onClick={()=> gotoNewRout(task)}  className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs mr-2">
               Update
-            </button></Link>
+            </button>
             <button
               onClick={() => handleDeleteTask(task)}
               className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded text-xs"
