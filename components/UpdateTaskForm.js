@@ -40,15 +40,15 @@ const UpdateTaskForm = ({ refetch }) => {
 
 
   const handleUpdateTask = (data) => {  
-    const id=data._id;  
-    console.log(id)
-    const newData = { ...data, id };
+    // const id=data._id;  
+    // console.log(id)
+    // const newData = { ...data, id };
     fetch(`https://task-manager-server-phi.vercel.app/updateTask/${data?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newData),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
