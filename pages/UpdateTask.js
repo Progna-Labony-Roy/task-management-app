@@ -16,23 +16,7 @@ const UpdateTask = () => {
     },
   });
 
-  
 
-  //   const handleUpdateTask = (data) => {
-  // console.log("dhurmatha",data)
-  //     fetch(`https://daily-task-server-eta.vercel.app/editTask`, {
-  //       method: "PUT",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(data2),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         router.push("/EditPage");
-  //         toast("Edit done");
-  //       });
-  //   };
   return (
     <div>
       <UpdateTaskForm

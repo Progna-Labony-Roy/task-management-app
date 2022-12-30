@@ -15,21 +15,41 @@ const UpdateTaskForm = ({ refetch }) => {
     formState: { errors },
   } = useForm();
 
-  const handleUpdateTask = (data) => {
-    const id = editID._id;
-    console.log(id);
+  // const handleUpdateTask = (data) => {
+  //   const id = editID._id;
+  //   console.log(id);
+  //   const newData = { ...data, id };
+  //   console.log(newData);
+  //   fetch(
+  //     `https://task-manager-server-phi.vercel.app/updateTask`,
+  //     {
+  //       method: "PUT",
+  //       headers: {
+  //         "content-type": "application/json",
+  //       },
+  //       body: JSON.stringify(newData),
+  //     }
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       router.push("/mytask");
+  //       toast("Task Updated");
+  //       refetch();
+  //     });
+  // };
+
+
+  const handleUpdateTask = (data) => {  
+    const id=data._id;  
+    console.log(id)
     const newData = { ...data, id };
-    console.log(newData);
-    fetch(
-      `https://task-manager-server-phi.vercel.app/updateTask`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      }
-    )
+    fetch(`https://task-manager-server-phi.vercel.app/updateTask/${data?._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
       .then((res) => res.json())
       .then((data) => {
         router.push("/mytask");
