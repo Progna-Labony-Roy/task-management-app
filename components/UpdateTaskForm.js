@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import { AuthContext } from "./AuthProvider";
 
 const UpdateTaskForm = ({ refetch }) => {
-  const { user,editID} = useContext(AuthContext);
-  console.log(editID._id)
+  const { user} = useContext(AuthContext);
+  
   const router = useRouter();
 
   const {
@@ -86,7 +86,7 @@ const UpdateTaskForm = ({ refetch }) => {
             <input
               {...register("title", { required: "Please write your title" })}
               type="text"
-              defaultValue={editID?.title}
+              // defaultValue={editID?.title}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-xs"
             />
             {errors.title && (
@@ -101,7 +101,7 @@ const UpdateTaskForm = ({ refetch }) => {
             <textarea
               {...register("description", { required: "Add description" })}
               type="text"
-              defaultValue={editID?.description}
+              // defaultValue={editID?.description}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-xs"
               name="description"
               placeholder="description"

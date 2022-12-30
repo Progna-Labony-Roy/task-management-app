@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../components/AuthProvider";
-import UpdateTaskForm from "./UpdateTaskForm";
+import UpdateTaskForm from "../components/UpdateTaskForm";
 
 const UpdateTask = () => {
   const { user } = useContext(AuthContext);
