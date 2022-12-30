@@ -56,8 +56,7 @@ const Navbar = () => {
             Completed Tasks
           </Link>
           
-         
-          
+    
         </nav>
         {user?.uid ? (
           <>

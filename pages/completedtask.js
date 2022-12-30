@@ -7,7 +7,7 @@ import MyTaskCard from "../components/MyTaskCard";
 const completedtask = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/tasks?email=${user?.email}`;
+  const url = `https://task-manager-server-phi.vercel.app/tasks?email=${user?.email}`;
 
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ["tasks", user?.email],

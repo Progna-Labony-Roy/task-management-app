@@ -18,7 +18,7 @@ const UpdateTaskForm = ({refetch}) => {
         const id=data._id;  
         console.log(id)
         const newData = { ...data, id };
-        fetch(`http://localhost:5000/updateTask/${data?._id}`, {
+        fetch(`https://task-manager-server-phi.vercel.app/updateTask/${data?._id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
